@@ -10,7 +10,7 @@ interface Grade {
 }
 
 async function getGrades(): Promise<Grade[]> {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     try {
         await page.goto('https://school.bilimal.kz', {
