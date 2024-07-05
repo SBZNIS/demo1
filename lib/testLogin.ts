@@ -1,6 +1,6 @@
-import puppeteer from 'puppeteer';
+import puppeteer, { Page } from 'puppeteer';
 
-async function testLogin(username: string, password: string, page: puppeteer.Page): Promise<void> {
+async function testLogin(username: string, password: string, page: Page): Promise<void> {
     if (typeof username !== 'string' || typeof password !== 'string') {
         throw new Error('Username and password must be strings');
     }
