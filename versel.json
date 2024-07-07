@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "next.config.js",
+        "use": "@vercel/next"
+      }
+    ],
+    "functions": {
+      "api/**/*.js": {
+        "runtime": "nodejs16.x"
+      }
+    }
+  }
+  

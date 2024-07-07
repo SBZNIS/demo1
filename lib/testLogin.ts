@@ -1,4 +1,4 @@
-import puppeteer, { Page } from 'puppeteer';
+import {Page} from 'puppeteer';
 
 async function testLogin(username: string, password: string, page: Page): Promise<void> {
     if (typeof username !== 'string' || typeof password !== 'string') {
@@ -16,8 +16,11 @@ async function testLogin(username: string, password: string, page: Page): Promis
             waitUntil: 'networkidle2',
             timeout: 60000 // Увеличиваем тайм-аут до 60 секунд
         });
+        // Ожидание загрузки элемента, который появляется после успешного логина
+        await page.waitForSelector('.main-header-user-title.mr-3', { timeout: 60000 });
     } catch (error) {
         console.error('Navigation timeout:', error);
+        throw error;
     }
 
     console.log('Taking screenshot...');
